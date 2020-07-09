@@ -40,32 +40,37 @@ class Kickstart:
 
 class Download:
     def __init__(self,url):
-        local_url = url
-        self.url = "\\".join(local_url.split('\\'))
-        self.video = pafy.new(self.url)
-        self.arquivomp3 = ''
-        self.pasta = ''
-    def GoDownload(self):
-        video = self.video
         try:
-            bestaudio = video.getbestaudio(preftype="webm")
-            self.pasta = config['download_path']
-            self.arquivomp3 = self.pasta +str(video.title)+".mp3" if self.pasta[-1] == '/' else self.pasta+"/"+str(video.title)+".mp3"
-            bestaudio.download(self.arquivomp3)
-            print("| baixada com sucesso -> {}".format(video.title))
-            return {'title': str(self.video.title), 'url': self.url}
+            local_url = url
+            self.url = "\\".join(local_url.split('\\'))
+            self.video = pafy.new(self.url)
+            self.arquivomp3 = ''
+            self.pasta = ''
         except:
-            print("ERRO! Download não realizado")
+            print('Algo deu errado ao encontrar esta música')
+    def GoDownload(self):
+        if hasattr(self, 'video'):
+            video = self.video
+            try:
+                bestaudio = video.getbestaudio(preftype="webm")
+                self.pasta = config['download_path']
+                self.arquivomp3 = self.pasta +str(video.title)+".mp3" if self.pasta[-1] == '/' else self.pasta+"/"+str(video.title)+".mp3"
+                bestaudio.download(self.arquivomp3)
+                print("| baixada com sucesso -> {}".format(video.title))
+                return {'title': str(self.video.title), 'url': self.url}
+            except:
+                print("ERRO! Download não realizado")
 
 def download(link):
     down = Download(link)
     already_downloaded = [x['url'] for x in config['downloaded_songs']]
     if link not in already_downloaded:
         downloaded = down.GoDownload()
-        with open('./config.json', 'w') as writer:
-            config['downloaded_songs'].append(downloaded)
-            writer.write(json.dumps(config))
-            writer.close()
+        if downloaded:
+            with open('./config.json', 'w') as writer:
+                config['downloaded_songs'].append(downloaded)
+                writer.write(json.dumps(config))
+                writer.close()
     else:
       print('Essa música já foi baixada, pulamos este download!')
 
