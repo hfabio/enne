@@ -12,6 +12,16 @@ Para a utilização do programa é necessário ter ter instalado na sua máquina
 - [Python3](https://www.python.org/downloads/)
 - [pip](https://pypi.org/project/pip/)
 - [pafy](https://pypi.org/project/pafy/)
+- [youtube-dl](https://youtube-dl.org/)
+
+Windows:
+```dos
+  pip install pafy youtube-dl
+```
+Linux / macOs
+```bash
+  pip3 install pafy youtube-dl
+```
 
 Agora que você instalou todas os pacotes necessários para o funcionamento do programa, clone o repositório em sua máquina [enne](https://github.com/viktorsht/enne.git).  
 Pronto, agora você está com todas as ferramentas para baixar suas músicas.  
