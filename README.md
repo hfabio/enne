@@ -30,38 +30,46 @@ Pronto, agora você está com todas as ferramentas para baixar suas músicas.
 ## UTILIZAÇÃO
 
 Para utilizar o programa é bem simples.
-- Vá ,usando a linha de comando, até o diretório do repositório do programa e digite:
+- Usando a linha de comando, vá até a pasta do enne e digite:
 
+```bash
+  $ python3 enne.py
+```
+ou
+```bash
   $ python3 enne.py UrlDaMúsica
+```
+**Nota: na primeira vez que você utilizar o programa irá configurar a pasta onde salvará as músicas baixadas**
 
-- O programa salva o nome e o url dos downloads em um arquivo .txt a fim de não realizar repetidos downloads da mesma música.  
+- O programa salva o nome e o url dos downloads no arquivo de configuração `config.json` a fim de não realizar repetidos downloads da mesma música.
 
-- Caso o url já exista no arquivo.txt o programa será fechado.  
-
-- O usuário deve passar o path onde o arquivo deverá ser salvo. O programa identifica a sua pasta de usuário.
+- Caso o url já exista no arquivo o programa avisará e te dará a opção de baixar mais uma música.
 
 - O usuário pode escolher realizar outro download ou não.
 
 ### Exemplo
 
-Digite  
+```bash
+ hfabio ~/Projetos/enne: python3 enne.py https://www.youtube.com/watch\?v\=0dl9vM7sj50
 
-  $ python3 enne.py https://www.youtube.com/watch?v=S-xb1miTjoE
 
-Aparecerá uma mensagem na tela: 'Onde deseja salvar a música?'   
+Esta é a primeira vez que você está executando o Enne.
+O diretório que está configurado atualmente é o /home/hfabio/Música/enne/
+Você deseja alterá-lo? (S/N)
+n
+Você quer fazer um download de teste? (S/N)
+n
+Seu enne está configurado, aproveite!
 
-  Ex: Música  
 
-e você baixará a Free Software Song(música do movimento do software livre) no formato .mp3 na pasta Música.
+| baixada com sucesso -> Best Part (Reigh Lofi Remix)
+Fazer um novo download? [S/N]: n
 
-## ATUALIZAÇÕES PARA O FUTURO
 
-- Possuir um banco de bados próprio e simples.
+Esta é a lista de musicas baixadas:
 
-- Funções de busca direto do programa.
+| - Best Part (Reigh Lofi Remix)
 
-- Virar um pacote para arquiteturas mais comuns.
-
-## Observações finais
-
-Além de otimizar minhas tarefas e mostrar os resultados dos meus estudos em Python. , este programa é uma forma de mostrar o funcionamento prático da biblioteca Pafy, além de tentar contribuir com a comunidade do Software Livre. Não há intenção alguma de prejudicar pessoas, grupos ou empresas.
+Você pode encontrá-las em: /home/hfabio/Música/enne/
+Até mais!
+```
